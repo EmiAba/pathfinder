@@ -15,7 +15,7 @@ public class Comment {
     private Boolean approved;
     @Column
     private LocalDateTime created;
-    @Column(name="text_content", columnDefinition = "TEXT")
+    @Column(name="text_content", columnDefinition = "TEXT", nullable = false)
     private String textContent;
 
     @ManyToOne

@@ -2,6 +2,7 @@ package bg.softuni.pathfinder.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -12,7 +13,7 @@ public class User {
     private Long id;
     @Column(nullable = false, unique = true)
     private String username;
-    @Column()
+    @Column(unique = true)
     private String email;
     @Column(nullable = false)
     private String password;
@@ -32,6 +33,7 @@ public class User {
     private Level level;
 
     public User() {
+        this.role=new HashSet<>();
     }
 
 
