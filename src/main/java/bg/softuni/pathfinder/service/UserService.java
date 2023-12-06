@@ -1,9 +1,14 @@
 package bg.softuni.pathfinder.service;
 
 import bg.softuni.pathfinder.model.User;
+import bg.softuni.pathfinder.model.dto.UserRegisterBindingModel;
 
-import java.util.Set;
+import java.util.List;
 
 public interface UserService {
-    Set<User> getUser();
+    //List<User> getUser();
+
+    void register(UserRegisterBindingModel userRegisterBindingModel);
+
+
 }
