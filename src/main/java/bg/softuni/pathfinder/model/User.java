@@ -1,5 +1,7 @@
 package bg.softuni.pathfinder.model;
 
+import bg.softuni.pathfinder.model.Level;
+import bg.softuni.pathfinder.model.Role;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -8,96 +10,126 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, unique = true)
-    private String username;
-    @Column(unique = true)
-    private String email;
-    @Column(nullable = false)
-    private String password;
-    @Column(name="full_name", nullable = false)
-    private String fullName;
-    @Column
-    private Integer age;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="users_roles",
-    joinColumns = {@JoinColumn(name="user_id", referencedColumnName = "id")},
-    inverseJoinColumns = {@JoinColumn(name="roles_id", referencedColumnName = "id")}
 
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
+
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    @Column(name = "full_name")
+    private String fullName;
+
+    @Column(name = "age")
+    private Integer age;
+
+    @Column(name = "email", unique = true)
+    private String email;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "roles_id", referencedColumnName = "id")}
     )
-    private Set<Role> role;
-    @Column
+    private Set<Role> roles;
+
     @Enumerated(EnumType.STRING)
     private Level level;
 
     public User() {
-        this.role=new HashSet<>();
+        this.roles = new HashSet<>();
     }
 
+    public Long getId () {
 
-    public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public User setId (Long id) {
+
         this.id = id;
+        return this;
     }
 
-    public String getUsername() {
+    public String getUsername () {
+
         return username;
     }
 
-    public void setUsername(String username) {
+    public User setUsername (String username) {
+
         this.username = username;
+        return this;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getPassword () {
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public User setPassword (String password) {
+
         this.password = password;
+        return this;
     }
 
-    public String getFullName() {
+    public String getFullName () {
+
         return fullName;
     }
 
-    public void setFullName(String fullName) {
+    public User setFullName (String fullName) {
+
         this.fullName = fullName;
+        return this;
     }
 
-    public Integer getAge() {
+    public Integer getAge () {
+
         return age;
     }
 
-    public void setAge(Integer age) {
+    public User setAge (Integer age) {
+
         this.age = age;
+        return this;
     }
 
-    public Set<Role> getRole() {
-        return role;
+    public String getEmail () {
+
+        return email;
     }
 
-    public void setRole(Set<Role> role) {
-        this.role = role;
+    public User setEmail (String email) {
+
+        this.email = email;
+        return this;
     }
 
-    public Level getLevel() {
+    public Set<Role> getRoles () {
+
+        return roles;
+    }
+
+    public User setRoles (Set<Role> roles) {
+
+        this.roles = roles;
+        return this;
+    }
+
+    public Level getLevel () {
+
         return level;
     }
 
-    public void setLevel(Level level) {
+    public User setLevel (Level level) {
+
         this.level = level;
+        return this;
     }
 }

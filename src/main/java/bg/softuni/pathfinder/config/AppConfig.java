@@ -14,16 +14,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class AppConfig {
 
 
-
-
-
     @Bean
     public ModelMapper modelMapper() {
-
-        final ModelMapper modelMapper = new ModelMapper();
-
-
-        return modelMapper;
+//        final ModelMapper modelMapper = new ModelMapper();
+        return  new ModelMapper();
     }
 
     @Bean
