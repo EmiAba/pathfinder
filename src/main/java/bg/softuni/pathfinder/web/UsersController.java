@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.web;
 
+import bg.softuni.pathfinder.model.dto.UserLoginBindingModel;
 import bg.softuni.pathfinder.model.dto.UserRegisterBindingModel;
 import bg.softuni.pathfinder.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -24,8 +25,15 @@ public class UsersController {
     }
 
 
+    @PostMapping("/login")
+    public ModelAndView login(UserLoginBindingModel userLoginBindingModel) {
+        boolean isLogged = userService.login(userLoginBindingModel);
+        if (isLogged) {
+            return new ModelAndView("redirect:/");
+        }
 
-
+        return new ModelAndView("login");
+    }
 
 
     @GetMapping("/register")
@@ -33,13 +41,16 @@ public class UsersController {
         return new ModelAndView("register");
     }
 
-
     @PostMapping("/register")
     public ModelAndView register(UserRegisterBindingModel userRegisterBindingModel) {
-
         this.userService.register(userRegisterBindingModel);
+        return new ModelAndView("redirect:login");
+    }
 
-        return new ModelAndView("redirect: /login");
+    @GetMapping("/logout")
+    public ModelAndView logout(){
+        userService.logout();
+        return  new ModelAndView("redirect:/");
     }
 
 

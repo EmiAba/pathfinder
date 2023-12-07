@@ -1,7 +1,5 @@
 package bg.softuni.pathfinder.model;
 
-import bg.softuni.pathfinder.model.Level;
-import bg.softuni.pathfinder.model.Role;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -105,7 +103,7 @@ public class User {
         return email;
     }
 
-    public User setEmail (String email) {
+    public User setEmail () {
 
         this.email = email;
         return this;
