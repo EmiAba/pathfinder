@@ -25,14 +25,13 @@ public class Route {
     private String videoUrl;
 
     @ManyToMany
-    @JoinTable(name = "routes_categories",
-            joinColumns = {@JoinColumn(name = "route_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "category_id", referencedColumnName = "id")})
-    private Set<Category> category;
-
+    private Set<Category> categories;
+//   @JoinTable(name = "routes_categories",
+//            joinColumns = {@JoinColumn(name = "route_id", referencedColumnName = "id")},
+//            inverseJoinColumns = {@JoinColumn(name = "category_id", referencedColumnName = "id")})
 
     public Route() {
-        this.category = new HashSet<>();
+        this.categories = new HashSet<>();
     }
 
 
@@ -84,11 +83,24 @@ public class Route {
         this.videoUrl = videoUrl;
     }
 
-    public Set<Category> getCategory() {
-        return category;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCategory(Set<Category> category) {
-        this.category = category;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
+
+    public void addCategories(Set<Category> categories) {
+
+       this.categories.addAll(categories);
     }
 }

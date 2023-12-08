@@ -1,7 +1,6 @@
 package bg.softuni.pathfinder.config;
 
 
-
 import org.modelmapper.ModelMapper;
 
 import org.springframework.context.annotation.Bean;
@@ -16,8 +15,10 @@ public class AppConfig {
 
     @Bean
     public ModelMapper modelMapper() {
-//        final ModelMapper modelMapper = new ModelMapper();
-        return  new ModelMapper();
+        ModelMapper mapper = new ModelMapper();
+
+
+        return new ModelMapper();
     }
 
     @Bean

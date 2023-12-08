@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class LoggedUser {
     private  String username;
 
-//    private String email;
+   private String email;
 
     private String fullName;
 
@@ -29,13 +29,13 @@ public class LoggedUser {
         this.username = username;
     }
 
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getFullName() {
         return fullName;
@@ -49,7 +49,7 @@ public class LoggedUser {
 
         setUsername(null);
         setFullName(null);
-//        setEmail(null);
+         setEmail(null);
         setLogged(false);
     }
 }
