@@ -15,15 +15,14 @@ public class UsersController {
     private final AuthenticationService authenticationService;
 
     public UsersController(AuthenticationService authenticationService) {
-        this.authenticationService =authenticationService;
+        this.authenticationService = authenticationService;
     }
 
-
+    //da
     @GetMapping("/login")
     public ModelAndView login() {
         return new ModelAndView("login");
     }
-
 
     @PostMapping("/login")
     public ModelAndView login(UserLoginBindingModel userLoginBindingModel) {
@@ -48,9 +47,9 @@ public class UsersController {
     }
 
     @GetMapping("/logout")
-    public ModelAndView logout(){
+    public ModelAndView logout() {
         authenticationService.logout();
-        return  new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/");
     }
 
 

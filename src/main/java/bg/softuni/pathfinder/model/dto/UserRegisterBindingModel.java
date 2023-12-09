@@ -6,22 +6,19 @@ import jakarta.validation.constraints.*;
 
 public class UserRegisterBindingModel {
 
-
     private String username;
-
 
     private String fullName;
 
-
-      private String email;
+    private String email;
 
     private int age;
 
     private String password;
 
-     private String confirmPassword;
+    private String confirmPassword;
 
-    public UserRegisterBindingModel () {
+    public UserRegisterBindingModel() {
 
     }
 

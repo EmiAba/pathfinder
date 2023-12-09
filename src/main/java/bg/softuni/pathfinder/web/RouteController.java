@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.web;
 
+
 import bg.softuni.pathfinder.model.CategoryEnum;
 import bg.softuni.pathfinder.model.Level;
 import bg.softuni.pathfinder.model.dto.AddRouteBindingModel;
@@ -13,12 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/routes")
 public class RouteController {
-    private final RouteService routeService;
+
+    private RouteService routeService;
 
     public RouteController(RouteService routeService) {
         this.routeService = routeService;
     }
-
 
     @GetMapping("/add")
     public ModelAndView addRoute() {
@@ -31,8 +32,8 @@ public class RouteController {
 
     @PostMapping("/add")
     public ModelAndView addRoute(AddRouteBindingModel addRouteBindingModel) {
-        routeService.add(addRouteBindingModel);
 
+        routeService.add(addRouteBindingModel);
         return new ModelAndView("redirect:/");
     }
 

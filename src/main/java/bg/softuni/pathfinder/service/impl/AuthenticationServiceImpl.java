@@ -18,7 +18,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final LoggedUser loggedUser;
 
-    public AuthenticationServiceImpl(UserRepository userRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder, LoggedUser loggedUser) {
+    public AuthenticationServiceImpl(UserRepository userRepository,
+                                     ModelMapper modelMapper,
+                                     PasswordEncoder passwordEncoder,
+                                     LoggedUser loggedUser) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
@@ -32,8 +35,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User user = modelMapper.map(userRegisterBindingModel, User.class);
         user.setPassword(passwordEncoder.encode(userRegisterBindingModel.getPassword()));
         userRepository.save(user);
-
-
     }
 
     @Override
@@ -52,15 +53,15 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
         loggedUser.setUsername(user.getUsername());
         loggedUser.setFullName(user.getFullName());
-         loggedUser.setEmail(user.getEmail());
-         loggedUser.setLogged(true);
+        loggedUser.setEmail(user.getEmail());
+        loggedUser.setLogged(true);
 
         return isPasswordMatched;
     }
 
     @Override
     public void logout() {
-        loggedUser.logout();
+        loggedUser.reset();
     }
 
 

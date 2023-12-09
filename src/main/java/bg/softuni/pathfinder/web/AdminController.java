@@ -7,8 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AdminController {
 
-//    @GetMapping("/admin")
-//    public ModelAndView admin(){
-//        return  new ModelAndView("redirect:/admin");
-//    }
+    @GetMapping("/admin")
+    public ModelAndView adminPanel(){
+        return  new ModelAndView("redirect:/admin");
+    }
 }

@@ -1,13 +1,13 @@
 package bg.softuni.pathfinder.service.session;
 
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class LoggedUser {
-    private  String username;
+    private String username;
 
-   private String email;
+    private String email;
 
     private String fullName;
 
@@ -45,11 +45,10 @@ public class LoggedUser {
         this.fullName = fullName;
     }
 
-    public void logout() {
-
+    public void reset() {
         setUsername(null);
         setFullName(null);
-         setEmail(null);
+        setEmail(null);
         setLogged(false);
     }
 }

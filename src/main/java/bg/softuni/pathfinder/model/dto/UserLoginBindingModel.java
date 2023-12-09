@@ -3,7 +3,7 @@ package bg.softuni.pathfinder.model.dto;
 public class UserLoginBindingModel {
     private String username;
     private String password;
-    private String email;
+//    private String email;
 
 
 
@@ -23,11 +23,11 @@ public class UserLoginBindingModel {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 }

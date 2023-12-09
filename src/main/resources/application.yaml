@@ -5,9 +5,9 @@ spring:
     username: root
     password:
 
-#    sql:
-#      init:
-#         mode: always
+    sql:
+     init:
+         mode: never
 
   servlet:
     multipart:
@@ -37,7 +37,25 @@ spring:
   #api-secret:
   #cloud-name:
 
+
+  thymeleaf: # Thymeleaf
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: file:src/main/resources/templates/
+  binding-result-package: org.springframework.validation.BindingResult
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
+      cache:
+        period: 0
+
+  pathfinder:
+   gpx-coordinates:
+      migrate: false
+
+
 server:
-  port: 8000
+  port: 8081
 
 

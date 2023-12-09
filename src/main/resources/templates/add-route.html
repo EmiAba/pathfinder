@@ -10,12 +10,12 @@
     <nav th:replace="~{fragments/navbar}">
     </nav>
 </header>
-
 <!-- Top Container -->
 <div class="row justify-content-center ">
     <form id="add-route-form" class="w-50 rounded text-white mt-5"
           th:action="@{/routes/add}"
-          th:method="POSt" enctype="multipart/form-data">
+          th:method="POST"
+          enctype="multipart/form-data">
 
         <h3 class="border-left border-light pl-2">Add a new route</h3>
         <div>
@@ -23,7 +23,7 @@
                 <label for="inputName" class="col-form-label ">Name</label>
             </div>
             <div class="form-group">
-                <input name="name" 
+                <input name="name"
                        required minlength="5" maxlength="20"
                        type="text"
                        id="inputName"
@@ -40,7 +40,7 @@
                 <label for="inputDescription" class="col-form-label ">Description</label>
             </div>
             <div class="form-group">
-                    <textarea name="description" 
+                    <textarea name="description"
                               required minlength="5"
                               id="inputDescription"
                               class="form-control"
@@ -68,9 +68,8 @@
         <div>
             <div class="form-group">
                 <label for="level">Level</label>
-                <select   id="level"
-                          name="level"
-                          class="custom-select">
+                <select id="level"
+                        name="level" class="custom-select">
                     <option value="" selected disabled>Select level</option>
                     <option th:each="level : ${levels}" th:text="${level}"
                             th:value="${level}" >Select level</option>
@@ -82,7 +81,8 @@
             <div class="form-group">
                 <label for="videoUrl">Video Url (only last eleven characters from Youtube)</label>
                 <input id="videoUrl"
-                       name="videoUrl" type="text"
+                      name="videoUrl"
+                       type="text"
                        class="form-control" placeholder="Video url">
             </div>
         </div>
@@ -90,9 +90,9 @@
         <div>
             <div class="form-group p-3">
                 <label class="p-2" for="categories">Categories:</label>
-                <input th:each="category : ${categories}" class="m-3" type="checkbox" name="categories" id="categories"
+                <input th:each="category: ${categories}"   class="m-3" type="checkbox" name="categories" id="categories"
                        th:value="${category}" th:text="${category}">
-				<br>
+                <br>
             </div>
         </div>
 

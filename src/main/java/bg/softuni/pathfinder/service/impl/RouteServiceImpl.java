@@ -33,12 +33,12 @@ public class RouteServiceImpl implements RouteService {
     public void add(AddRouteBindingModel addRouteBindingModel) {
         Route route = modelMapper.map(addRouteBindingModel, Route.class);
         route.getCategories().clear();
-        Set<Category> categories= categoryRepository.findByNameIn(addRouteBindingModel.getCategories());
 
-        route.addCategories(categories);
+       Set<Category> categories= categoryRepository.findByNameIn(addRouteBindingModel.getCategories());
+       route.addCategories(categories);
 
         User user=userService.getLoggedUser();
- route.setAuthor(user);
+        route.setAuthor(user);
 
 
         routeRepository.save(route);
